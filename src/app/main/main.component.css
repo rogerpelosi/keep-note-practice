@@ -1,0 +1,29 @@
+.input-panel{
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 1em;
+}
+
+.hidden-elements{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hidden-elements button{
+    margin-top: 5px;
+}
+
+.hidden-elements p{
+    color:blueviolet;
+}
+
+.notecards-container{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+}

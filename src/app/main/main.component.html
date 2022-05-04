@@ -1,0 +1,63 @@
+<!-- <mat-form-field appearance="fill">
+    <input matInput type="text" placeholder="Title" [(ngModel)]="newNote.title">
+    <mat-label>Input Title</mat-label>
+    <mat-hint>Note: Title</mat-hint>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+    <input matInput type="text" placeholder="Text" [(ngModel)]="newNote.text">
+    <mat-label>Input Text</mat-label>
+    <mat-hint>Note: Text</mat-hint>
+</mat-form-field>
+
+<button mat-raised-button color="accent" (click)="addNote()">Add Note</button> -->
+<mat-expansion-panel hideToggle class="input-panel">
+
+    <p *ngIf="error" color="accent">{{error}}</p>
+
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon color="accent">edit_note</mat-icon>
+        add new note
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <section class="hidden-elements">
+        <mat-form-field appearance="fill" class="m-4">
+            <input matInput type="text" placeholder="Title" [(ngModel)]="newNote.title">
+            <mat-label>note title</mat-label>
+            <mat-hint>anything you want</mat-hint>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <textarea matInput [(ngModel)]="newNote.text"></textarea>
+            <mat-label>note content here</mat-label>
+            <mat-hint>bulk of note goes here</mat-hint>
+        </mat-form-field>
+    
+        <button mat-raised-button color="accent" (click)="addNote()">all done</button>
+    </section>
+
+    <!-- <mat-form-field appearance="fill">
+        <input matInput type="text" placeholder="Title" [(ngModel)]="newNote.title">
+        <mat-label>note title</mat-label>
+        <mat-hint>anything you want</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <textarea matInput [(ngModel)]="newNote.text"></textarea>
+        <mat-label>note content here</mat-label>
+        <mat-hint>bulk of note goes here</mat-hint>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" (click)="addNote()">add</button> -->
+
+</mat-expansion-panel>
+
+<section class="notecards-container">
+
+    <app-notecard *ngFor="let oneNoteObj of manyNotesArr" [singleNote]="oneNoteObj">
+        <!-- logic lies in notecard component -->
+    </app-notecard>
+
+</section>
