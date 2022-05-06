@@ -20,23 +20,3 @@
 .hidden-elements p{
     color:blueviolet;
 }
-
-.view-toggle-buttons{
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center !important;
-    text-align: center !important;
-    justify-content: center !important;
-}
-
-.view-toggle-buttons button{
-    margin-bottom: 1em;
-}
-
-.notecards-container{
-    display: flex;
-    flex-direction: row;
-    justify-content:flex-start;
-    flex-wrap: wrap;
-}

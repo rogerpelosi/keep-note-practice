@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Note } from 'src/note';
 import { NoteService } from '../note.service';
+import { RoutingService } from '../routing.service';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,11 @@ import { NoteService } from '../note.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private noteService: NoteService) {}
+  constructor(
+    private noteService: NoteService,
+    private routing: RoutingService){
+    console.log("created main")
+  }
 
   manyNotesArr: Note[] = [];
   newNote: Note = new Note();
@@ -24,21 +29,28 @@ export class MainComponent implements OnInit {
   }
 
   addNote(){
-    if(this.newNote.title === undefined || this.newNote.text === undefined || this.newNote.title === ""){
-      this.error = "fields cannot be blank";
-      throw new Error("Fields Cannot Be Blank!");
-    } else {
-      this.error = undefined;
-      this.noteService.postNewNote(this.newNote).subscribe({
-        next:newNoteObj=>{
-          this.manyNotesArr.push(newNoteObj);
-          this.newNote.title="";
-          this.newNote.text="";
-        },
-        error:error=>this.error = error
-      });
-    }
+    // if(this.newNote.title === undefined || this.newNote.text === undefined || this.newNote.title === ""){
+    //   this.error = "fields cannot be blank";
+    //   throw new Error("Fields Cannot Be Blank!");
+    // } else {
+    //   this.error = undefined;
+    //   this.noteService.postNewNote(this.newNote).subscribe({
+    //     next:newNoteObj=>{
+    //       this.manyNotesArr.push(newNoteObj);
+    //       this.newNote.title="";
+    //       this.newNote.text="";
+    //     },
+    //     error:error=>this.error = error
+    //   });
+    // }
   }
 
+  showCards(){
+    this.routing.gotoCards();
+  }
+
+  showList(){
+    this.routing.gotoList();
+  }
 
 }

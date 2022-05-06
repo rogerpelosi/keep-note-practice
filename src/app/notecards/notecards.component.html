@@ -1,0 +1,9 @@
+<app-newnote [handlePost]="addNotePersist"></app-newnote>
+
+<section class="notecards-container">
+
+    <app-notecard *ngFor="let oneNoteObj of manyNotesArr" [singleNote]="oneNoteObj">
+        <!-- logic lies in notecard component -->
+    </app-notecard>
+
+</section>

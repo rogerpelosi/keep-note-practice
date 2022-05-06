@@ -21,13 +21,59 @@ import {MatExpansionModule} from '@angular/material/expansion';
 
 //data acquisition module
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+
+//routing module
+import {Routes, RouterModule} from '@angular/router';
+import { CandisplayGuard } from './candisplay.guard';
+import { NoteslistComponent } from './noteslist/noteslist.component';
+import { NotecardsComponent } from './notecards/notecards.component';
+import { NewnoteComponent } from './newnote/newnote.component';
+import { NotelistliComponent } from './notelistli/notelistli.component';
+
+const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'main',
+    component: MainComponent,
+    children: [
+      {
+        path: 'view/cards', 
+        component: NotecardsComponent
+      },
+      {
+        path: 'view/list',
+        component: NoteslistComponent
+      },
+      {
+        path: '',
+        redirectTo: 'view/cards',
+        pathMatch: 'full'
+      }
+    ],
+    canActivate: [CandisplayGuard]
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MainComponent,
-    NotecardComponent
+    NotecardComponent,
+    LoginComponent,
+    NoteslistComponent,
+    NotecardsComponent,
+    NewnoteComponent,
+    NotelistliComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +86,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatCardModule,
     FormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

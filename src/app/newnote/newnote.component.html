@@ -1,4 +1,4 @@
-<!-- <mat-expansion-panel hideToggle class="input-panel">
+<mat-expansion-panel hideToggle class="input-panel">
 
     <p *ngIf="error" color="accent">{{error}}</p>
 
@@ -25,32 +25,4 @@
         <button mat-raised-button color="accent" (click)="addNote()">all done</button>
     </section>
 
-</mat-expansion-panel> -->
-
-<!-- <section class="view-toggle-buttons">
-
-    <button mat-stroked-button color="primary" (click)="showCards()">sticky notes view</button>
-
-    <button mat-stroked-button color="primary" (click)="showList()">see notes as list</button>
-
-</section> -->
-
-<router-outlet>
-    <!-- for cards / list view -->
-</router-outlet>
-
-<section class="view-toggle-buttons">
-
-    <button mat-stroked-button color="primary" (click)="showCards()">sticky notes view</button>
-
-    <button mat-stroked-button color="primary" (click)="showList()">see notes as list</button>
-
-</section>
-
-<!-- <section class="notecards-container">
-
-    <app-notecard *ngFor="let oneNoteObj of manyNotesArr" [singleNote]="oneNoteObj">
-        logic lies in notecard component 
-    </app-notecard>
-
-</section> -->
+</mat-expansion-panel>

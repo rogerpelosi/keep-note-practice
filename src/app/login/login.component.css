@@ -1,0 +1,13 @@
+.hidden-elements{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hidden-elements button{
+    margin-top: 5px;
+}
+
+.hidden-elements p{
+    color:blueviolet;
+}

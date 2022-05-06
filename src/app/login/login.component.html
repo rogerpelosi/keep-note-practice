@@ -1,0 +1,15 @@
+<p *ngIf="loginError" color="accent">{{loginError}}</p>
+
+<section class="hidden-elements">
+    <mat-form-field appearance="fill" class="m-4">
+        <input matInput type="username" placeholder="username" [(ngModel)]="username">
+        <mat-label>your username</mat-label>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <input matInput type="password" placeholder="password" [(ngModel)]="password">
+        <mat-label>your password</mat-label>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" (click)="login()">login</button>
+</section>
