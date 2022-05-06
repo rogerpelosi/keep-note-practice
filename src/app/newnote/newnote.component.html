@@ -1,6 +1,8 @@
 <mat-expansion-panel hideToggle class="input-panel">
 
-    <p *ngIf="error" color="accent">{{error}}</p>
+    <p *ngIf="titleError" color="accent">{{titleError}}</p>
+    <p *ngIf="textError" color="accent">{{textError}}</p>
+    <!-- <p *ngIf="newNoteForm.invalid">x</p> -->
 
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -9,20 +11,23 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <section class="hidden-elements">
+    <form class="hidden-elements" [formGroup]="newNoteForm" (ngSubmit)="formSubmission()">
+    <!-- <section class="hidden-elements"> -->
         <mat-form-field appearance="fill" class="m-4">
-            <input matInput type="text" placeholder="Title" [(ngModel)]="newNote.title">
+            <input matInput type="text" placeholder="Title" formControlName="title">
             <mat-label>note title</mat-label>
             <mat-hint>anything you want</mat-hint>
         </mat-form-field>
     
         <mat-form-field appearance="fill">
-            <textarea matInput [(ngModel)]="newNote.text"></textarea>
+            <textarea matInput formControlName="text"></textarea>
             <mat-label>note content here</mat-label>
             <mat-hint>bulk of note goes here</mat-hint>
         </mat-form-field>
+      
     
-        <button mat-raised-button color="accent" (click)="addNote()">all done</button>
-    </section>
+        <button mat-raised-button color="accent" [disabled]="newNoteForm.invalid">all done</button>
+    <!-- </section> -->
+    </form>
 
 </mat-expansion-panel>

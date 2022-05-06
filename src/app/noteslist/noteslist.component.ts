@@ -24,16 +24,12 @@ export class NoteslistComponent implements OnInit {
   }
 
   addNotePersist(newNote: Note){
-    console.log(newNote);
-    this.note = newNote;
-    console.log(this.note);
-      this.noteService.postNewNote(this.note).subscribe({
+      this.noteService.postNewNote(newNote).subscribe({
         next:newNoteObj=>{
-          //this.manyNotesArr.push(newNoteObj);
-          console.log(newNoteObj)
+          this.manyNotesArr.push(newNoteObj);
         },
         error:error=>console.log(error)
       });
-    }
+  }
 
 }

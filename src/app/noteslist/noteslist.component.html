@@ -1,4 +1,4 @@
-<app-newnote [handlePost]="addNotePersist"></app-newnote>
+<app-newnote (handlePost)="addNotePersist($event)"></app-newnote>
 
 <section class="notecards-container">
 
