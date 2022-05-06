@@ -18,7 +18,7 @@ export class NoteslistComponent implements OnInit {
 
   ngOnInit(): void {
     this.noteService.gatherNotes().subscribe({
-      next:(notes=>this.manyNotesArr=notes),
+      next:(notes=>this.manyNotesArr=notes.reverse()),
       error:(error=>console.log(error))
     })
   }
@@ -26,7 +26,7 @@ export class NoteslistComponent implements OnInit {
   addNotePersist(newNote: Note){
       this.noteService.postNewNote(newNote).subscribe({
         next:newNoteObj=>{
-          this.manyNotesArr.push(newNoteObj);
+          this.manyNotesArr.unshift(newNoteObj);
         },
         error:error=>console.log(error)
       });

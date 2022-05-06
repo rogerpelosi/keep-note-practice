@@ -1,0 +1,18 @@
+li{
+    display: flex;
+    flex-direction: row;
+}
+
+li .title{
+    color:blueviolet !important;
+}
+
+li .title:hover{
+    color:rgb(200, 166, 232) !important;
+    cursor: pointer;
+
+}
+
+li .text{
+    margin-left: 1em;
+}

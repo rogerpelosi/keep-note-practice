@@ -2,7 +2,6 @@
 
     <p *ngIf="titleError" color="accent">{{titleError}}</p>
     <p *ngIf="textError" color="accent">{{textError}}</p>
-    <!-- <p *ngIf="newNoteForm.invalid">x</p> -->
 
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -12,7 +11,6 @@
     </mat-expansion-panel-header>
 
     <form class="hidden-elements" [formGroup]="newNoteForm" (ngSubmit)="formSubmission()">
-    <!-- <section class="hidden-elements"> -->
         <mat-form-field appearance="fill" class="m-4">
             <input matInput type="text" placeholder="Title" formControlName="title">
             <mat-label>note title</mat-label>
@@ -27,7 +25,6 @@
       
     
         <button mat-raised-button color="accent" [disabled]="newNoteForm.invalid">all done</button>
-    <!-- </section> -->
     </form>
 
 </mat-expansion-panel>
