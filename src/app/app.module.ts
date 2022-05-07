@@ -30,6 +30,7 @@ import { NoteslistComponent } from './noteslist/noteslist.component';
 import { NotecardsComponent } from './notecards/notecards.component';
 import { NewnoteComponent } from './newnote/newnote.component';
 import { NotelistliComponent } from './notelistli/notelistli.component';
+import { ClickednoteComponent } from './clickednote/clickednote.component';
 
 const routes: Routes = [
   {
@@ -40,19 +41,10 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     children: [
-      {
-        path: 'view/cards', 
-        component: NotecardsComponent
-      },
-      {
-        path: 'view/list',
-        component: NoteslistComponent
-      },
-      {
-        path: '',
-        redirectTo: 'view/cards',
-        pathMatch: 'full'
-      }
+      {path: 'view/cards', component: NotecardsComponent},
+      {path: 'view/list', component: NoteslistComponent},
+      {path: '', redirectTo: 'view/cards', pathMatch: 'full'},
+      {path: 'viewnote/:noteId', component: ClickednoteComponent, outlet: 'clickedCardOutlet'}
     ],
     canActivate: [CandisplayGuard]
   },
@@ -73,7 +65,8 @@ const routes: Routes = [
     NoteslistComponent,
     NotecardsComponent,
     NewnoteComponent,
-    NotelistliComponent
+    NotelistliComponent,
+    ClickednoteComponent
   ],
   imports: [
     BrowserModule,

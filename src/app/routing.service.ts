@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Note } from 'src/note';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class RoutingService {
 
   gotoList(){
     this.router.navigate(['main', 'view', 'list'])
+  }
+
+  gotoClickedCardFromCards(noteId: number){
+    this.router.navigate(['main', {outlets: {clickedCardOutlet: ['viewnote', noteId]}}])
   }
 
 }

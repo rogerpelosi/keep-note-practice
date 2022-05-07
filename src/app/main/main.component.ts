@@ -21,4 +21,8 @@ export class MainComponent implements OnInit {
     this.routing.gotoList();
   }
 
+  // showCard(){
+  //   this.routing.gotoClickedCardFromCards();
+  // }
+
 }

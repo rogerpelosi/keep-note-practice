@@ -1,5 +1,7 @@
 <app-newnote (handlePost)="addNotePersist($event)"></app-newnote>
 
+<!-- <router-outlet></router-outlet> -->
+
 <section class="notecards-container">
 
     <app-notecard *ngFor="let oneNoteObj of manyNotesArr" [singleNote]="oneNoteObj">
